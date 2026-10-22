@@ -1,5 +1,5 @@
 """
-ReliefMesh — Standalone Hosted Agent for Agentverse & ASI:One
+Fetch Relief — Standalone Hosted Agent for Agentverse & ASI:One
 Self-contained script ready to paste directly into an Agentverse Hosted Agent editor.
 """
 from datetime import datetime, timezone
@@ -175,7 +175,7 @@ def run_coordination_simulation(user_prompt: str):
     
     # 6. Generate Markdown Report
     lines = [
-        "# ReliefMesh Emergency Operations Report",
+        "# Fetch Relief Emergency Operations Report",
         f"**Run ID:** `run-{uuid.uuid4().hex[:8]}` | **Status:** {'VERIFIED & AUDITED' if (inv_pass and math_pass and veh_pass) else 'AUDIT WARNING'}",
         "",
         "## 1. Resource Balance & Shortages",
@@ -254,7 +254,7 @@ async def handle_chat_message(ctx: Context, sender: str, msg: ChatMessage):
 
     if not user_prompt:
         reply_text = (
-            "ReliefMesh Emergency Coordinator is active.\n"
+            "Fetch Relief Emergency Coordinator is active.\n"
             "Please describe your simulated disaster scenario or supply parameters."
         )
     else:

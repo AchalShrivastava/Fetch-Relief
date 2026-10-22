@@ -19,7 +19,7 @@ from services.intent_service import IntentParserService
 from services.storage_service import storage_service
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("reliefmesh.agent")
+logger = logging.getLogger("fetch_relief.agent")
 
 # Initialize the public Fetch.ai uAgent
 mailbox_config = settings.AGENT_MAILBOX_KEY if settings.AGENT_MAILBOX_KEY else False
@@ -68,7 +68,7 @@ async def handle_chat_message(ctx: Context, sender: str, msg: ChatMessage):
 
     if not user_prompt:
         reply_text = (
-            "ReliefMesh Autonomous Emergency Coordinator online.\n"
+            "Fetch Relief Autonomous Emergency Coordinator online.\n"
             "Please describe a simulated disaster scenario or specify supply constraints.\n"
             "Example: 'Simulate flood relief for North Zone and River Zone with 500 food kits and 300 water units.'"
         )
@@ -86,7 +86,7 @@ async def handle_chat_message(ctx: Context, sender: str, msg: ChatMessage):
     if parsed.get("action") == "reset":
         storage_service.reset_to_demo()
         reply_text = (
-            "**[ReliefMesh State Reset]**\n\n"
+            "**[Fetch Relief State Reset]**\n\n"
             "Demo dataset and warehouse inventory have been successfully restored to default baseline.\n"
             "Ready for new emergency coordination queries."
         )
@@ -94,7 +94,7 @@ async def handle_chat_message(ctx: Context, sender: str, msg: ChatMessage):
         inv = storage_service.get_current_inventory()
         inv_lines = [f"- **{k.replace('_', ' ').title()}:** {v.available_quantity} {v.unit} available" for k, v in inv.items()]
         reply_text = (
-            f"**[ReliefMesh Central Depot Inventory Status]**\n"
+            f"**[Fetch Relief Central Depot Inventory Status]**\n"
             f"*Provider: {provider_name}*\n\n" + "\n".join(inv_lines)
         )
     else:
@@ -119,7 +119,7 @@ async def handle_chat_message(ctx: Context, sender: str, msg: ChatMessage):
         trace_summary = ", ".join(f"{ev.agent_name}:{ev.action}" for ev in report.execution_trace[:5])
 
         reply_text = (
-            f"**[ReliefMesh Coordination Result]**\n"
+            f"**[Fetch Relief Coordination Result]**\n"
             f"**Intent Source:** {provider_name}\n"
             f"**Execution Trace:** {trace_summary}...\n\n"
             f"{report.human_readable_summary}"
@@ -147,7 +147,7 @@ agent.include(chat_proto, publish_manifest=True)
 @agent.on_event("startup")
 async def startup_banner(ctx: Context):
     ctx.logger.info("=" * 60)
-    ctx.logger.info(f"ReliefMesh uAgent started!")
+    ctx.logger.info(f"Fetch Relief uAgent started!")
     ctx.logger.info(f"Agent Name:    {agent.name}")
     ctx.logger.info(f"Agent Address: {agent.address}")
     ctx.logger.info(f"Agent Port:    {settings.AGENT_PORT}")

@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     BACKEND_PORT: int = 8000
 
     # Fetch.ai uAgent
-    AGENT_NAME: str = "reliefmesh_coordinator"
+    AGENT_NAME: str = "fetch_relief_coordinator"
     AGENT_PORT: int = 8001
     AGENT_SEED: str = "reliefmesh_coordinator_hackathon_demo_seed_phrase_2026"
     AGENT_ENDPOINT: str = "http://127.0.0.1:8001/submit"

@@ -1,5 +1,5 @@
-# ReliefMesh: Reset Demo Data
-Write-Host "Resetting ReliefMesh demo data to default baseline..." -ForegroundColor Yellow
+# Fetch Relief: Reset Demo Data
+Write-Host "Resetting Fetch Relief demo data to default baseline..." -ForegroundColor Yellow
 
 $VenvPython = ".\venv\Scripts\python.exe"
 if (-Not (Test-Path $VenvPython)) {

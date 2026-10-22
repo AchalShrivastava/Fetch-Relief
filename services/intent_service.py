@@ -5,7 +5,7 @@ from typing import Dict, Any, Optional, Tuple, List
 import httpx
 from backend.config import settings
 
-logger = logging.getLogger("reliefmesh.intent")
+logger = logging.getLogger("fetch_relief.intent")
 
 class IntentParserService:
     @classmethod
@@ -34,7 +34,7 @@ class IntentParserService:
     async def _call_asi1_api(cls, prompt: str) -> Optional[Dict[str, Any]]:
         url = f"{settings.ASI1_BASE_URL.rstrip('/')}/chat/completions"
         system_prompt = (
-            "You are an emergency response intent parser for ReliefMesh. "
+            "You are an emergency response intent parser for Fetch Relief. "
             "Extract structured data from the user's disaster response query. "
             "Output ONLY valid JSON with keys: "
             "'action' ('simulate', 'status', 'reset'), "

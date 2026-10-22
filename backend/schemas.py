@@ -152,7 +152,7 @@ class SimulationReport(BaseModel):
     participating_agents: List[str] = Field(default_factory=list)
     human_readable_summary: str = ""
     limitations_disclaimer: str = (
-        "SIMULATION NOTICE: ReliefMesh is an experimental coordination simulation. "
+        "SIMULATION NOTICE: Fetch Relief is an experimental coordination simulation. "
         "Outputs are strictly synthetic, based on deterministic heuristics and assumed parameters. "
         "Not validated for live disaster dispatch."
     )

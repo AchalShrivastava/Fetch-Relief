@@ -1,4 +1,4 @@
-# ReliefMesh — Hackathon Submission Checklist
+# Fetch Relief — Hackathon Submission Checklist
 ## Fetch-a-thon | ASI:One Agent Challenge
 
 This checklist tracks all mandatory requirements, verification statuses, and final submission deliverables.
@@ -28,7 +28,7 @@ To finalize your submission form on the hackathon portal, complete these 3 user-
 ### A. Agentverse Profile & Mailbox Activation
 1. Log into your [Agentverse](https://agentverse.ai) account.
 2. Go to **Mailroom** &rarr; **Connect Local Agent** (or create a hosted agent).
-3. Enter your verified ReliefMesh Agent Address:
+3. Enter your verified Fetch Relief Agent Address:
    ```text
    agent1qfmhx62fz5q2fpnc38la0hchcfu3a5mkhve0pzxnkdymqdqa4yj8j5eeq07
    ```
@@ -40,7 +40,7 @@ To finalize your submission form on the hackathon portal, complete these 3 user-
 
 ### B. ASI:One Shared Chat Link
 1. Log into [ASI:One](https://asi1.ai).
-2. Start a conversation with your registered ReliefMesh agent.
+2. Start a conversation with your registered Fetch Relief agent.
 3. Submit the demo prompt:
    ```text
    Simulate relief operations for a flood affecting North Zone, River Zone, and Market Zone. We have 500 food kits, 300 water units, 100 first-aid kits, and four vehicles. Prioritize urgent needs, allocate available supplies, and explain any shortages.

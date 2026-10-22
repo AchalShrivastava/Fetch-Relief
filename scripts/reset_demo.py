@@ -1,12 +1,12 @@
 """
-ReliefMesh Demo Reset Utility
+Fetch Relief Demo Reset Utility
 Restores the default synthetic scenario and warehouse inventories.
 """
 from services.storage_service import storage_service
 
 if __name__ == "__main__":
     scenario = storage_service.reset_to_demo()
-    print(f"ReliefMesh Demo Reset Complete:")
+    print(f"Fetch Relief Demo Reset Complete:")
     print(f"Scenario ID: {scenario.scenario_id}")
     print(f"Scenario:    {scenario.name}")
     print(f"Inventory:   {len(scenario.inventory)} resource types")

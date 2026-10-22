@@ -1,6 +1,6 @@
-# ReliefMesh: Launch FastAPI Backend Server
+# Fetch Relief: Launch FastAPI Backend Server
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "  Starting ReliefMesh Emergency Coordination API Backend  " -ForegroundColor Cyan
+Write-Host "  Starting Fetch Relief Emergency Coordination API Backend  " -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 
 $VenvPython = ".\venv\Scripts\python.exe"

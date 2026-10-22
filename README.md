@@ -1,4 +1,4 @@
-# ReliefMesh — Autonomous Emergency Resource Coordinator
+# Fetch Relief — Autonomous Emergency Resource Coordinator
 
 ![tag:innovationlab](https://img.shields.io/badge/innovationlab-3D8BD3)
 ![tag:hackathon](https://img.shields.io/badge/hackathon-5F43F1)
@@ -19,18 +19,18 @@ During natural disasters (floods, earthquakes, severe storms), humanitarian coor
 - Resources are frequently double-allocated or assigned to vehicles exceeding payload capacities.
 - Black-box LLMs hallucinate inaccurate quantities and unverified arrival times.
 
-**ReliefMesh** solves this by converting natural-language emergency scenarios into **explainable, deterministic, inventory-conserving allocation and logistics plans** directly inside **ASI:One**.
+**Fetch Relief** solves this by converting natural-language emergency scenarios into **explainable, deterministic, inventory-conserving allocation and logistics plans** directly inside **ASI:One**.
 
 ### Crucial Safety Boundary & Disclaimer
 > [!IMPORTANT]
 > **SIMULATION & PLANNING SUPPORT PROTOTYPE ONLY.**  
-> ReliefMesh is an academic and hackathon simulation tool. All scenarios, victim censuses, and travel times are synthetic. ReliefMesh never contacts real 911/emergency services, never dispatches physical responders, and never claims actual supply deliveries. Operational deployment requires verified field sensors and authorized incident commanders.
+> Fetch Relief is an academic and hackathon simulation tool. All scenarios, victim censuses, and travel times are synthetic. Fetch Relief never contacts real 911/emergency services, never dispatches physical responders, and never claims actual supply deliveries. Operational deployment requires verified field sensors and authorized incident commanders.
 
 ---
 
 ## 2. Multi-Agent Architecture
 
-ReliefMesh orchestrates **7 specialized multi-agent roles** coordinated through a Fetch.ai uAgent implementing the **Agent Chat Protocol (ACP v0.3 / 0.4)**.
+Fetch Relief orchestrates **7 specialized multi-agent roles** coordinated through a Fetch.ai uAgent implementing the **Agent Chat Protocol (ACP v0.3 / 0.4)**.
 
 ```mermaid
 flowchart TD
@@ -68,7 +68,7 @@ flowchart TD
 
 ## 3. Resource Allocation Engine & Priority Scoring
 
-ReliefMesh uses deterministic algorithms rather than black-box text generators for supply arithmetic:
+Fetch Relief uses deterministic algorithms rather than black-box text generators for supply arithmetic:
 
 ### Priority Scoring Formula
 Each relief request receives a score between $0.0$ and $100.0$:
@@ -90,7 +90,7 @@ $$\text{Score} = \text{Urgency Weight} + \text{Vulnerability Factor} + \text{Con
 ## 4. Fetch.ai & ASI:One Integration
 
 ### Agent Chat Protocol (ACP) Implementation
-ReliefMesh natively implements the official Fetch.ai `uagents_core.contrib.protocols.chat` specification:
+Fetch Relief natively implements the official Fetch.ai `uagents_core.contrib.protocols.chat` specification:
 - **`ChatMessage`**: Ingests user prompts containing `TextContent`.
 - **`ChatAcknowledgement`**: Automatically sent back within milliseconds with `acknowledged_msg_id` for guaranteed ASI:One responsiveness.
 - **`chat_protocol_spec`**: Validated with `publish_manifest=True` for Almanac contract and Agentverse mailroom discovery.
@@ -102,14 +102,14 @@ ReliefMesh natively implements the official Fetch.ai `uagents_core.contrib.proto
 | `reliefmesh_coordinator` | `reliefmesh_coordinator_hackathon_demo_seed_phrase_2026` | Emergency Logistics Simulation, Priority Allocation, Audit | Verified Local / Ready for Mailroom | `agent1qfmhx62fz5q2fpnc38la0hchcfu3a5mkhve0pzxnkdymqdqa4yj8j5eeq07` |
 
 ### ASI1 API & Zero-Paid Fallback
-- **ASI1 API (`asi1-mini`):** If `ASI_ONE_API_KEY` is provided in `.env`, ReliefMesh calls `https://api.asi1.ai/v1/chat/completions` for intent extraction.
-- **Offline Fallback Parser:** If no key is set or the network is unavailable, ReliefMesh automatically falls back to an offline deterministic entity parser without crashing or fabricating API calls.
+- **ASI1 API (`asi1-mini`):** If `ASI_ONE_API_KEY` is provided in `.env`, Fetch Relief calls `https://api.asi1.ai/v1/chat/completions` for intent extraction.
+- **Offline Fallback Parser:** If no key is set or the network is unavailable, Fetch Relief automatically falls back to an offline deterministic entity parser without crashing or fabricating API calls.
 
 ---
 
 ## 5. Quickstart & Windows PowerShell Setup
 
-ReliefMesh is built for clean, native Windows PowerShell operation under **Python 3.12**.
+Fetch Relief is built for clean, native Windows PowerShell operation under **Python 3.12**.
 
 ### 1. Clone & Setup Virtual Environment
 ```powershell
@@ -166,7 +166,7 @@ Simulate relief operations for a flood affecting North Zone, River Zone, and Mar
 ### Sample Output Response in ASI:One
 
 ```markdown
-# ReliefMesh Emergency Operations Report
+# Fetch Relief Emergency Operations Report
 **Run ID:** `run-c48d2a19` | **Scenario:** *Tri-Zone Flash Flood Coordination Exercise*
 **Status:** VERIFIED & AUDITED
 
@@ -214,7 +214,7 @@ Simulate relief operations for a flood affecting North Zone, River Zone, and Mar
 
 ## 7. Automated Acceptance Tests
 
-ReliefMesh includes a comprehensive test suite in `tests/` matching all hackathon evaluation criteria:
+Fetch Relief includes a comprehensive test suite in `tests/` matching all hackathon evaluation criteria:
 
 ```text
 tests/test_allocation.py::test_allocation_engine_inventory_conservation PASSED
@@ -241,7 +241,7 @@ tests/test_verification.py::test_independent_verification_detects_vehicle_overlo
 
 ## 8. Agentverse & ASI:One Registration Guide
 
-To connect the local ReliefMesh agent to live **Agentverse** and **ASI:One**:
+To connect the local Fetch Relief agent to live **Agentverse** and **ASI:One**:
 1. Run `python .\scripts\register_agentverse.py` to view your verified agent address:
    `agent1qfmhx62fz5q2fpnc38la0hchcfu3a5mkhve0pzxnkdymqdqa4yj8j5eeq07`
 2. Log into [Agentverse](https://agentverse.ai) and go to **Mailroom**.

@@ -1,7 +1,7 @@
-# ReliefMesh — 3-to-5 Minute Hackathon Demo Script
+# Fetch Relief — 3-to-5 Minute Hackathon Demo Script
 ## Fetch-a-thon | ASI:One Agent Challenge
 
-**Title:** ReliefMesh: Autonomous Emergency Resource Coordinator  
+**Title:** Fetch Relief: Autonomous Emergency Resource Coordinator  
 **Presenter Role:** Disaster Response AI Architect & Fetch.ai Engineer  
 **Duration:** 3 to 5 Minutes  
 **Primary UI:** ASI:One Conversation (`https://asi1.ai`) & Emergency Operations Dashboard (`http://127.0.0.1:8000`)
@@ -12,14 +12,14 @@
 - **Spoken:**
   > "During natural disasters like flash floods, relief teams face a critical challenge: uncoordinated requests flood in from shelters, medical clinics, and volunteers. Coordinators struggle to prioritize life-saving needs, double-allocation occurs, and transport vehicles are dispatched inefficiently.
   >
-  > Today, we present **ReliefMesh** — an autonomous emergency resource coordination system powered by Fetch.ai uAgents and the ASI:One Agent Chat Protocol.
+  > Today, we present **Fetch Relief** — an autonomous emergency resource coordination system powered by Fetch.ai uAgents and the ASI:One Agent Chat Protocol.
   >
-  > ReliefMesh converts natural-language crisis reports into mathematically verified, shortage-aware, and auditable allocation plans."
+  > Fetch Relief converts natural-language crisis reports into mathematically verified, shortage-aware, and auditable allocation plans."
 
 ---
 
 ### [0:45 - 1:45] 2. Submitting Intent in ASI:One
-- **Action:** Open the ASI:One conversation interface connected to the ReliefMesh agent (`agent1qfmhx62fz5q2fpnc38la0hchcfu3a5mkhve0pzxnkdymqdqa4yj8j5eeq07`).
+- **Action:** Open the ASI:One conversation interface connected to the Fetch Relief agent (`agent1qfmhx62fz5q2fpnc38la0hchcfu3a5mkhve0pzxnkdymqdqa4yj8j5eeq07`).
 - **Prompt Sent:**
   ```text
   Simulate relief operations for a flood affecting North Zone, River Zone, and Market Zone. We have 500 food kits, 300 water units, 100 first-aid kits, and four transport vehicles. Prioritize urgent needs, allocate available supplies, and explain any shortages.
@@ -35,7 +35,7 @@
 ### [1:45 - 2:45] 3. Multi-Agent Orchestration & Priority-Based Allocation
 - **Action:** Show the live execution trace and Priority Allocation table.
 - **Spoken:**
-  > "Rather than using an unverified LLM hallucination for disaster logistics, ReliefMesh executes deterministic computations:
+  > "Rather than using an unverified LLM hallucination for disaster logistics, Fetch Relief executes deterministic computations:
   > - **SituationAssessmentAgent** validates 9 field requests, flagging low-confidence social media posts.
   > - **NeedsAndPriorityAgent** detects and quarantines duplicate requests (like duplicate food requests from Market Zone).
   > - Transparent scoring: Urgency (up to 40 pts), Vulnerability (up to 30 pts), Source Confidence (up to 20 pts), and Lifesaving bonuses (10 pts for medical/water).
@@ -64,12 +64,12 @@
 
 ### [3:45 - 4:30] 5. Ecosystem Impact & Wrap-Up
 - **Spoken:**
-  > "ReliefMesh demonstrates the true power of the Fetch.ai and ASI:One ecosystem:
+  > "Fetch Relief demonstrates the true power of the Fetch.ai and ASI:One ecosystem:
   > - Full compliance with Agent Chat Protocol (ACP v0.3 / 0.4).
   > - Registered agent identity with deterministic seed.
   > - Explainable, auditable AI that disaster coordinators can actually trust.
   >
-  > ReliefMesh: When Every Resource Counts. Thank you!"
+  > Fetch Relief: When Every Resource Counts. Thank you!"
 
 ---
 

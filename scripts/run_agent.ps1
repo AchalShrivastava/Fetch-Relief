@@ -1,6 +1,6 @@
-# ReliefMesh: Launch Fetch.ai uAgent with ACP Protocol
+# Fetch Relief: Launch Fetch.ai uAgent with ACP Protocol
 Write-Host "==========================================================" -ForegroundColor Green
-Write-Host "  Starting ReliefMesh Public uAgent (Agent Chat Protocol)  " -ForegroundColor Green
+Write-Host "  Starting Fetch Relief Public uAgent (Agent Chat Protocol)  " -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Green
 
 $VenvPython = ".\venv\Scripts\python.exe"

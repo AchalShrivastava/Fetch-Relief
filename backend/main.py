@@ -14,7 +14,7 @@ from services.intent_service import IntentParserService
 from backend.orchestrator import CommandOrchestrator
 
 app = FastAPI(
-    title="ReliefMesh Emergency Coordinator API",
+    title="Fetch Relief Emergency Coordinator API",
     description="Multi-agent emergency logistics simulation backend powered by Fetch.ai and ASI:One.",
     version="1.0.0"
 )
@@ -35,7 +35,7 @@ if os.path.exists("frontend"):
 def serve_dashboard():
     if os.path.exists("frontend/index.html"):
         return FileResponse("frontend/index.html")
-    return {"message": "ReliefMesh API Backend Running"}
+    return {"message": "Fetch Relief API Backend Running"}
 
 @app.get("/style.css", include_in_schema=False)
 def serve_css():
@@ -49,7 +49,7 @@ def serve_js():
 def health_check():
     return {
         "status": "healthy",
-        "service": "ReliefMesh Backend",
+        "service": "Fetch Relief Backend",
         "version": "1.0.0",
         "environment": settings.ENVIRONMENT,
         "storage": settings.STORAGE_BACKEND

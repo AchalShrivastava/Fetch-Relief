@@ -130,7 +130,7 @@ function runClientSideSimulation(promptText) {
       { agent_name: "LogisticsAgent", action: "DISPATCH_LOGISTICS_PLAN", details: { tasks: 3 }, status: "SUCCESS" },
       { agent_name: "VerificationAgent", action: "INDEPENDENT_AUDIT_VERIFIED", details: { passed: true }, status: "SUCCESS" }
     ],
-    human_readable_summary: "### ReliefMesh Emergency Operations Report\nSimulation successfully generated and independently verified."
+    human_readable_summary: "### Fetch Relief Emergency Operations Report\nSimulation successfully generated and independently verified."
   };
 }
 

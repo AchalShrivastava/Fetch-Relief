@@ -191,7 +191,7 @@ class VerificationAndReportService:
         all_passed: bool
     ) -> str:
         lines = [
-            f"# ReliefMesh Emergency Operations Report",
+            f"# Fetch Relief Emergency Operations Report",
             f"**Run ID:** `{run_id}` | **Scenario:** *{scenario_name}*",
             f"**Status:** {'VERIFIED & AUDITED' if all_passed else 'WARNINGS DETECTED'}",
             "",
@@ -249,7 +249,7 @@ class VerificationAndReportService:
 
         lines.extend([
             "",
-            "> **SIMULATION NOTICE:** ReliefMesh is an experimental coordination model. All road conditions, patient censuses, and travel times are synthetic. Not for live emergency dispatch."
+            "> **SIMULATION NOTICE:** Fetch Relief is an experimental coordination model. All road conditions, patient censuses, and travel times are synthetic. Not for live emergency dispatch."
         ])
 
         return "\n".join(lines)

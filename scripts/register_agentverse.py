@@ -1,5 +1,5 @@
 """
-ReliefMesh Agentverse Registration & Inspector Helper
+Fetch Relief Agentverse Registration & Inspector Helper
 Inspects the agent address, verifies seed consistency, and explains Agentverse connection.
 """
 from backend.config import settings
@@ -7,7 +7,7 @@ from agents.master_agent import agent
 
 def print_registration_details():
     print("=" * 70)
-    print(" RELIEFMESH AGENTVERSE REGISTRATION & DISCOVERY HELPER")
+    print(" FETCH RELIEF AGENTVERSE REGISTRATION & DISCOVERY HELPER")
     print("=" * 70)
     print(f"Agent Name:    {agent.name}")
     print(f"Agent Address: {agent.address}")

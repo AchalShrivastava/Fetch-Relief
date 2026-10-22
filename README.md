@@ -2,9 +2,12 @@
 
 ![tag:innovationlab](https://img.shields.io/badge/innovationlab-3D8BD3)
 ![tag:hackathon](https://img.shields.io/badge/hackathon-5F43F1)
+[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-GitHub%20Pages-2ea44f?style=flat&logo=github)](https://achalshrivastava.github.io/Fetch-Relief/)
 
 > **"When Every Resource Counts."**  
 > *An explainable, multi-agent emergency logistics simulation powered by Fetch.ai uAgents and the ASI:One Agent Chat Protocol.*
+
+🌐 **Live Web Dashboard:** [https://achalshrivastava.github.io/Fetch-Relief/](https://achalshrivastava.github.io/Fetch-Relief/)
 
 ---
 
@@ -261,6 +264,7 @@ To connect the local ReliefMesh agent to live **Agentverse** and **ASI:One**:
 
 ## 10. Submission Links
 - **GitHub Repository:** [https://github.com/AchalShrivastava/Fetch-Relief](https://github.com/AchalShrivastava/Fetch-Relief)
+- **Live Web Dashboard:** [https://achalshrivastava.github.io/Fetch-Relief/](https://achalshrivastava.github.io/Fetch-Relief/)
 - **Verified Agent Address:** `agent1qfmhx62fz5q2fpnc38la0hchcfu3a5mkhve0pzxnkdymqdqa4yj8j5eeq07`
 - **Agentverse Profile URL:** `[Your Agentverse Profile URL]`
 - **ASI:One Shared Chat URL:** `[Your ASI:One Shared Chat URL]`

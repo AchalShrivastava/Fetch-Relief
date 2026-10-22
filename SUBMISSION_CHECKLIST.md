@@ -51,13 +51,10 @@ To finalize your submission form on the hackathon portal, complete these 3 user-
 ### C. Public GitHub Repository
 1. Push this workspace to your public GitHub account:
    ```powershell
-   git init
-   git add .
-   git commit -m "feat: ReliefMesh - Autonomous Emergency Resource Coordinator"
-   git remote add origin https://github.com/<your-username>/reliefmesh.git
+   git remote add origin https://github.com/AchalShrivastava/Fetch-Relief.git
    git push -u origin main
    ```
-2. Submission URL placeholder: `[Paste your public GitHub repository URL here]`
+2. Repository URL: [https://github.com/AchalShrivastava/Fetch-Relief](https://github.com/AchalShrivastava/Fetch-Relief)
 
 ### D. 3-to-5 Minute Demo Video
 1. Use `DEMO_SCRIPT.md` as your presentation guide.

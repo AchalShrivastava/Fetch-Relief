@@ -111,8 +111,8 @@ ReliefMesh is built for clean, native Windows PowerShell operation under **Pytho
 ### 1. Clone & Setup Virtual Environment
 ```powershell
 # In PowerShell:
-git clone https://github.com/<your-username>/reliefmesh.git
-cd reliefmesh
+git clone https://github.com/AchalShrivastava/Fetch-Relief.git
+cd Fetch-Relief
 
 # Create Python 3.12 virtual environment
 py -3.12 -m venv venv
@@ -260,7 +260,7 @@ To connect the local ReliefMesh agent to live **Agentverse** and **ASI:One**:
 ---
 
 ## 10. Submission Links
-- **GitHub Repository:** `[Public Repository URL]`
+- **GitHub Repository:** [https://github.com/AchalShrivastava/Fetch-Relief](https://github.com/AchalShrivastava/Fetch-Relief)
 - **Verified Agent Address:** `agent1qfmhx62fz5q2fpnc38la0hchcfu3a5mkhve0pzxnkdymqdqa4yj8j5eeq07`
 - **Agentverse Profile URL:** `[Your Agentverse Profile URL]`
 - **ASI:One Shared Chat URL:** `[Your ASI:One Shared Chat URL]`

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReliefMesh — Autonomous Emergency Resource Coordinator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo-badge">RM</div>
+      <div>
+        <h1>ReliefMesh</h1>
+        <div class="tagline">When Every Resource Counts &bull; Multi-Agent Disaster Coordinator</div>
+      </div>
+    </div>
+    <div class="header-status">
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span id="agent-status-text">Fetch.ai uAgent: ACTIVE</span>
+      </div>
+      <div class="header-actions">
+        <button id="btn-reset-demo" class="btn btn-secondary">Reset Demo State</button>
+        <button id="btn-run-sim" class="btn btn-primary">Run Simulation</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="disclaimer-banner">
+      <strong>SIMULATION DRILL ONLY:</strong> ReliefMesh is an experimental coordination system for the Fetch-a-thon &amp; ASI:One challenge. All scenario locations, casualties, and transit conditions are synthetic. Never contacts real emergency responders.
+    </div>
+
+    <!-- Natural Language Intent Bar -->
+    <section class="query-box">
+      <div class="query-label">
+        <span>ASI:One Natural Language Emergency Prompt</span>
+        <span id="intent-provider-badge" class="badge badge-medium">Ready</span>
+      </div>
+      <div class="query-input-wrap">
+        <input type="text" id="prompt-input" class="query-input" placeholder="e.g. Simulate flood relief for North Zone, River Zone, and Market Zone. We have 500 food kits, 300 water units, and four vehicles." value="Simulate relief operations for a flood affecting North Zone, River Zone, and Market Zone. We have 500 food kits, 300 water units, 100 first-aid kits, and four vehicles. Prioritize urgent needs, allocate available supplies, and explain any shortages.">
+        <button id="btn-submit-prompt" class="btn btn-primary">Dispatch to Agents</button>
+      </div>
+      <div class="quick-prompts">
+        <span class="prompt-chip" data-prompt="Simulate flood relief for North Zone and River Zone with 500 food kits and 300 water units.">Flood Drill (North &amp; River)</span>
+        <span class="prompt-chip" data-prompt="Severe storm relief for Market Zone: 200 food kits, 150 water units, 50 first aid kits.">Market Zone Triage</span>
+        <span class="prompt-chip" data-prompt="Emergency generator shortage: 10 generators available, prioritize critical hospital clinics.">Generator Shortage Drill</span>
+        <span class="prompt-chip" data-prompt="Reset inventory and restore demo baseline.">Reset System</span>
+      </div>
+    </section>
+
+    <!-- Operational Metrics -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-title">Requests Evaluated</div>
+        <div class="metric-value" id="metric-requests">-</div>
+        <div class="metric-sub" id="metric-requests-sub">Assessed by Situation Agent</div>
+      </div>
+      <div class="metric-card success">
+        <div class="metric-title">Supplies Allocated</div>
+        <div class="metric-value" id="metric-allocated">-</div>
+        <div class="metric-sub">Deterministic inventory-safe</div>
+      </div>
+      <div class="metric-card warning">
+        <div class="metric-title">Critical Shortages</div>
+        <div class="metric-value" id="metric-shortages">-</div>
+        <div class="metric-sub" id="metric-shortages-sub">Identified &amp; explained</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">Dispatched Deliveries</div>
+        <div class="metric-value" id="metric-deliveries">-</div>
+        <div class="metric-sub" id="metric-deliveries-sub">Payload capacity validated</div>
+      </div>
+      <div class="metric-card success">
+        <div class="metric-title">Independent Audit</div>
+        <div class="metric-value" id="metric-audit">AUDITED</div>
+        <div class="metric-sub">Zero double-allocation</div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="tab-allocations">Priority Allocations</button>
+      <button class="tab-btn" data-tab="tab-logistics">Logistics &amp; Fleet</button>
+      <button class="tab-btn" data-tab="tab-verification">Independent Audit</button>
+      <button class="tab-btn" data-tab="tab-trace">Agent Execution Trace</button>
+      <button class="tab-btn" data-tab="tab-report">ASI:One Markdown Report</button>
+      <button class="tab-btn" data-tab="tab-inventory">Warehouse Inventory</button>
+    </div>
+
+    <!-- Tab 1: Allocations Matrix -->
+    <div id="tab-allocations" class="tab-content active">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Priority</th>
+              <th>Request ID</th>
+              <th>Destination</th>
+              <th>Resource</th>
+              <th>Requested</th>
+              <th>Allocated</th>
+              <th>Shortage</th>
+              <th>Transparent Score &amp; Allocation Reason</th>
+            </tr>
+          </thead>
+          <tbody id="allocations-tbody">
+            <tr><td colspan="8" style="text-align:center; color: var(--text-muted);">Loading allocations...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab 2: Logistics & Fleet -->
+    <div id="tab-logistics" class="tab-content">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Seq</th>
+              <th>Vehicle Name</th>
+              <th>Destination</th>
+              <th>Payload Loaded</th>
+              <th>Capacity %</th>
+              <th>Est. Transit</th>
+              <th>Synthetic Routing Assumptions</th>
+            </tr>
+          </thead>
+          <tbody id="logistics-tbody">
+            <tr><td colspan="7" style="text-align:center; color: var(--text-muted);">Loading dispatch plan...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab 3: Independent Audit -->
+    <div id="tab-verification" class="tab-content">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Audit Code</th>
+              <th>Verification Name</th>
+              <th>Status</th>
+              <th>Mathematical Finding &amp; Conservation Audit Details</th>
+            </tr>
+          </thead>
+          <tbody id="verification-tbody">
+            <tr><td colspan="4" style="text-align:center; color: var(--text-muted);">Loading verification audit...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tab 4: Agent Execution Trace -->
+    <div id="tab-trace" class="tab-content">
+      <div class="timeline" id="trace-timeline">
+        <!-- Event cards rendered via JS -->
+      </div>
+    </div>
+
+    <!-- Tab 5: ASI:One Markdown Report -->
+    <div id="tab-report" class="tab-content">
+      <div class="markdown-view" id="markdown-report-view">
+        Generating simulation report...
+      </div>
+    </div>
+
+    <!-- Tab 6: Central Depot Inventory -->
+    <div id="tab-inventory" class="tab-content">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Resource Type</th>
+              <th>Initial Stock</th>
+              <th>Available Stock</th>
+              <th>Reserved Units</th>
+              <th>Unit Spec</th>
+            </tr>
+          </thead>
+          <tbody id="inventory-tbody">
+            <tr><td colspan="5" style="text-align:center; color: var(--text-muted);">Loading warehouse stock...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
